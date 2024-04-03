@@ -21,19 +21,27 @@ const RestaurantMenu = () => {
 
   if (resInfo === null) return <Shimmer />;
 
+// const fetchData = async () => {
+//   const data = await fetch("https://www.swiggy.com/dapi/menu/pl?page-type=REGULAR_MENU&complete-menu=true&lat=18.5203896&lng=73.8567005&restaurantId=105252&catalog_qa=undefined&isMenuUx4=true&submitAction=ENTER");
+//   const json = await data.json();
+    
+//   setResList(
+//     json?.data.cards[1]?
+//   )
+// }
+
   // Destructuring
-  const { name, cuisines, costForTwoMessage, cloudinaryImageId } =
-    resInfo?.cards[0]?.card?.card?.info;
+  const { name, cuisines, costForTwoMessage, cloudinaryImageId } = resInfo?.cards[2]?.card?.card?.info;
 
   const { itemCards } =
-    resInfo?.cards[2]?.groupedCard?.cardGroupMap?.REGULAR?.cards[2]?.card?.card;
+    resInfo?.cards[4]?.groupedCard?.cardGroupMap?.REGULAR?.cards[2]?.card?.card;
 
-  //console.log(resInfo?.cards[2]?.groupedCard?.cardGroupMap?.REGULAR?.cards);
+  //console.log(resInfo?.cards[4]?.groupedCard?.cardGroupMap?.REGULAR?.cards);
 
   // filtering data from the catergory to get all the items
 
   const categories =
-    resInfo?.cards[2]?.groupedCard?.cardGroupMap?.REGULAR?.cards.filter(
+    resInfo?.cards[4]?.groupedCard?.cardGroupMap?.REGULAR?.cards.filter(
       (c) =>
         c.card?.card?.["@type"] ===
         "type.googleapis.com/swiggy.presentation.food.v2.ItemCategory"
@@ -52,7 +60,7 @@ const RestaurantMenu = () => {
       {categories.map((catergory, index) => (
         // controlled component 
         <RestaurantCategory
-          key={catergory?.card?.card.title}
+          key={catergory?.card?.card?.title}
           data={catergory?.card?.card}
           showItem={index === showIndex ? true: false}
           setShowIndex={() => setShowIndex(index)}

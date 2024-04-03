@@ -26,7 +26,7 @@ console.log(dummy);
             </div>
             <div className="w-3/12 p-4">
               <div className="absolute right-80">
-                <button className="p-1 mx-16 bg-slate-50 text-black shadow-lg ">
+                <button className="p-1 mx-16 mt-10 bg-slate-50 text-black shadow-lg ">
                    +
                 </button>
               </div>
