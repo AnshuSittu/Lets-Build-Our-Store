@@ -4,6 +4,7 @@ import Shimmer from "./Shimmer";
 import { Link } from "react-router-dom";
 import useOnlineStatus from "../../utils/useOnlineStatus";
 import userContext from "../../utils/userContext";
+import Footer from "./Footer"
 
 const Body = () => {
   //Local state Variable
@@ -125,6 +126,8 @@ const Body = () => {
           </Link>
         ))}
       </div>
+      
+      <Footer/>
     </div>
   );
 };

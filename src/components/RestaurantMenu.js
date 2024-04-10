@@ -5,6 +5,7 @@ import { useParams } from "react-router-dom";
 import { MENU_API } from "../../utils/constants";
 import useRestaurantMenu from "../../utils/useRestaurantMenu";
 import RestaurantCategory from "./RestaurantCategory";
+import Footer from "./Footer"
 
 const RestaurantMenu = () => {
   const { resID } = useParams();
@@ -49,6 +50,7 @@ const RestaurantMenu = () => {
   //console.log(categories);
 
   return (
+    <>
     <div className="text-center">
       <h1 className="font-bold my-5 text-2xl">{name}</h1>
       <h2 className="font-bold text-lg">
@@ -67,7 +69,11 @@ const RestaurantMenu = () => {
           dummy={dummy}
         />
       ))}
+      
     </div>
+   
+    <Footer/>
+    </>
   );
 };
 

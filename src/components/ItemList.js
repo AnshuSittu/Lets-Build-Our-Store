@@ -1,7 +1,18 @@
 import React from "react";
 import { CDN_URL } from "../../utils/constants";
+import { useDispatch } from "react-redux";
+import { addItem } from "../../utils/cartSlice";
+
 
 const ItemList = ({ items, dummy }) => {
+
+  const Dsipatch = useDispatch()
+
+  const handleAddItem = (item) => {
+    //Dsipatch An Action
+    Dsipatch( addItem(item));
+  }
+
 console.log(dummy);
  // console.log(items);
   return (
@@ -26,7 +37,9 @@ console.log(dummy);
             </div>
             <div className="w-3/12 p-4">
               <div className="absolute right-80">
-                <button className="p-1 mx-16 mt-10 bg-slate-50 text-black shadow-lg ">
+                <button className="p-1 mx-16 mt-10 bg-slate-50 text-black shadow-lg "
+                onClick={() => handleAddItem (item)}  // function handleAddItem is at top 
+                >
                    +
                 </button>
               </div>
@@ -35,6 +48,7 @@ console.log(dummy);
           </div>
         ))}
       </div>
+   
     </div>
   );
 };
